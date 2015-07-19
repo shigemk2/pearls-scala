@@ -1,7 +1,8 @@
 def minfree(xs: List[Int]): Int = {
   // minfree xs = head([0..] \\ x)
   // Scalaでこういう書き方出来ない
-  \\(Stream.from(0).take(100000).toList, xs).head
+  // \\(Stream.from(0).take(100000).toList, xs).head
+  Stream.from(0).filter(x => ! xs.contains(x)).head
 }
 
 def \\(us: List[Int], vs: List[Int]): List[Int] = {
